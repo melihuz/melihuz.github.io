@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fibonacci Dizisi</title>
+    <style>
+      span {
+        padding: 10px;
+      }
+      h1 {
+        text-align: center;
+      }
+      .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 15px;
+      }
+      #root {
+        margin: 0 auto;
+        width: 80%;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        border: 1px solid aqua;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Fibonacci Dizisi</h1>
+    <div class="container">
+      <input id="count" type="number" min="1" value="1" />
+      <button onclick="fib()">Hesapla</button>
+    </div>
+    <!-- <h3>Result;</h3> -->
+    <div id="root"></div>
+    <script>
+      let Dom = document.getElementById("root");
+      function fib() {
+        let count = document.getElementById("count").value;
+        if (count <= 0) {
+          document.getElementById("count").value = 0;
+          alert("1'den küçük olamaz");
+        } else {
+          Dom.innerHTML = "";
+          for (var fib = 0, x = 1, y = 1, i = 0; i < count; i++) {
+            fib = x + y;
+            x = y;
+            y = fib;
+            const SPAN = document.createElement("span");
+            SPAN.innerHTML = fib;
+            Dom.append(SPAN);
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
